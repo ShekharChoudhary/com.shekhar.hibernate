@@ -3,6 +3,7 @@ package com.shekhar.hibernate.dto;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity (name="EMPLOYEE_DETAILS")
 public class Employee {
@@ -11,6 +12,9 @@ public class Employee {
 	private int empID;
 	private String name;
 	private String address;
+	
+	private Company company;
+	
 	@Id
 	@Column(name ="EMPLOYEE_ID")
 	public int getEmpID() {
@@ -32,6 +36,14 @@ public class Employee {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	
+	@OneToOne
+	public Company getCompany() {
+		return company;
+	}
+	public void setCompany(Company company) {
+		this.company = company;
 	}
 	
 	
